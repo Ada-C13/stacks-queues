@@ -1,29 +1,30 @@
 class Queue
+  class QueueFullError < StandardError; end
 
-  def initialize
-    @queue = Array.new
+  def initialize # could initialize with capacity for variable size
+    @queue = Array.new(20)
+    @capacity = @queue.count
     @front = 0
     @back = 0
   end
 
   def enqueue(element)
-    # puts "Queue before enqueuing: #{@queue}, @back: #{@back}"
-    @queue[@back] = element
-    @back += 1
-    # puts "Queue after enqueuing: #{@queue}, @back: #{@back}"
+    # puts "Queue before enqueuing: #{@queue}, @front: #{@front}, @back: #{@back}"
+    raise QueueFullError if self.full?
 
-    # add logic for overflow/wrapping
+    @queue[@back] = element
+    @back = (@back + 1) % @queue.length
+    # puts "Queue after enqueuing: #{@queue}, @front: #{@front}, @back: #{@back}"
   end
 
   def dequeue
     return nil if self.empty?
-    # puts "Queue before dequeuing: #{@queue}, @front: #{@front}"
+    # puts "Queue before dequeuing: #{@queue}, @front: #{@front}, @back: #{@back}"
 
     dequeued = @queue[@front]
     @queue[@front] = nil
-    @front += 1
-    # puts "Queue after dequeuing: #{@queue}, @front: #{@front}"
-    # add logic for overflow/wrapping
+    @front = (@front + 1) % @queue.length
+    # puts "Queue after dequeuing: #{@queue}, @front: #{@front}, @back: #{@back}"
     
     return dequeued
   end
@@ -44,17 +45,26 @@ class Queue
     return count
   end
 
+  def full?
+    @front == @back && self.size == @capacity
+  end
+
   def empty?
-    return false if @queue.nil?
+    @front == @back && self.size == 0
+  end
 
-    @queue.each do |item|
-      return false if item != nil
-    end
+  def order_front_to_back
+    # front is before back
+    return @queue if @front < @back
 
-    return true
+    # back is before front 
+    ordered_queue = []
+    ordered_queue << @queue[@front..@capacity] # put in @front until end of array
+    ordered_queue << @queue[0..@back] # 0 loc of array to @back
+    return ordered_queue.flatten
   end
 
   def to_s
-    return @queue.compact.to_s
+    return self.order_front_to_back.compact.to_s
   end
 end
