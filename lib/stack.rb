@@ -8,7 +8,6 @@ class Stack
   end
 
   def pop
-    # return nil if @list.empty?
     @list.remove_first
   end
 

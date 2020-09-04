@@ -32,7 +32,7 @@ class LinkedList
       end
     end
 
-    def remove_first()
+    def remove_first
       raise ArgumentError, "Empty" if self.empty?
 
       value = @head.data
