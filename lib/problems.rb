@@ -25,12 +25,11 @@ def balanced(string)
   return stack.empty?
 end
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)? where n is the length of the postfix_expression?
+# Space Complexity: O(n) for the extra stack, where n is the length of the postfix_expression
 def evaluate_postfix(postfix_expression)
   operators = ["+", "-", "*", "/", "%"]
   operands = Stack.new
-  # results = Stack.new
 
   i = 0
   while i < postfix_expression.length
