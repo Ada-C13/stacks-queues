@@ -21,8 +21,8 @@ def balanced(str)
   return braces.empty?
 end
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 def evaluate_postfix(str)
   calc = Stack.new
   i = 0
