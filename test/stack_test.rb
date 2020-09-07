@@ -9,6 +9,7 @@ describe "Test Stack Implementation" do
   it "pushes something onto a empty Stack" do
     s = Stack.new
     s.push(10)
+    s.empty?.must_equal false
     expect(s.pop).must_equal 10
   end
 
