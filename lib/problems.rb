@@ -22,7 +22,8 @@ def balanced(string)
     end
   end
   # if everything matches/closes, then we have a balanced brackets
-  return true
+
+  return opening_brackets.empty?
 end
 
 # Time Complexity: ?
