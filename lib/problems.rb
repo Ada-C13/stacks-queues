@@ -1,9 +1,41 @@
 require_relative './stack.rb'
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n) because it  goes through each item
+# Space Complexity: could be up to o(n) because im building a stack.
 def balanced(string)
-  raise NotImplementedError, "Not implemented yet"
+  brackets = string.split('')
+  open = []
+
+  brackets.length.times do |i|
+    if brackets[i] == "(" || brackets[i] == "[" || brackets[i] == "{"
+      open.push(brackets[i])
+    elsif brackets[i] == ")"
+      if open.last == "("
+        open.pop 
+      else
+        return false
+      end
+    elsif brackets[i] == "]"
+      if open.last == "["
+        open.pop 
+      else
+        return false
+      end
+    elsif brackets[i] == "}"
+      if open.last == "{"
+        open.pop 
+      else
+        return false
+      end
+    end
+  end
+
+  if open.length > 0
+    return false
+  end
+
+  return true
+
 end
 
 # Time Complexity: ?
