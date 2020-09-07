@@ -22,8 +22,8 @@ class Queue
   end
 
   def size
-    # return 0 if self.empty?
-    # return @list.length
+    return 0 if self.empty?
+    return @store.length
   end
 
   def empty?
