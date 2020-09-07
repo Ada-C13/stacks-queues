@@ -99,12 +99,13 @@ class LinkedList
       return 0 if @head.nil?
       length = 0
       current = @head
+      
       until current.nil?
         current = current.next
         length += 1
       end
+
       return length
-      
     end
 
     # method that returns the value at a given index in the linked list
@@ -166,19 +167,19 @@ class LinkedList
     # Space Complexity: O(1)
     def reverse
       return nil if @head.nil?
+      
       prev = nil
       current = @head
+
       until current.nil?
         temp = current.next
         current.next = prev
         prev = current
         current = temp
         prev.previous = current
-
       end
 
       @head = prev
-
     end
 
 

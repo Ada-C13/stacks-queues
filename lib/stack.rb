@@ -1,3 +1,5 @@
+require_relative "./linked_list.rb"
+
 class Stack
   def initialize
     @list = LinkedList.new
@@ -8,6 +10,7 @@ class Stack
   end
 
   def pop
+    
     @list.remove_first
   end
 
@@ -16,6 +19,6 @@ class Stack
   end
 
   def to_s
-    return @store.to_s
+    return @list.to_s
   end
 end
