@@ -55,6 +55,7 @@ class Queue
     return @queue[@front]
   end
 
+  # reference: https://stackoverflow.com/questions/4459141/how-to-find-number-of-elements-in-a-circular-queue
   def size
     size = @front > @rear ? (@size - @front + @rear + 1) : (@rear - @front + 1)
     return size
