@@ -16,7 +16,7 @@ def balanced(string)
     if pairs[bracket]
       stack.push(pairs[bracket])
     else
-      return false unless stack.pop == bracket
+      return false if stack.pop != bracket
     end
   end
   stack.empty?
