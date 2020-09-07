@@ -5,7 +5,7 @@ require_relative './stack.rb'
 def balanced(string)
  
   opening_brackets = Stack.new
-  string.each_chars do |char|
+  string.each_char do |char|
     # if an opening bracket, push it into the opening_brackets
     if char == '{' || char == '(' || char == '['
       opening_brackets.push(char)
