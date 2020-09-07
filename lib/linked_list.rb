@@ -12,6 +12,8 @@ end
 
 # Defines the singly linked list
 class LinkedList
+  attr_accessor :head, :tail 
+
     def initialize
       @head = nil # keep the head private. Not accessible outside this class
       @tail = nil

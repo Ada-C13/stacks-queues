@@ -1,6 +1,9 @@
 require_relative "linked_list"
 
 class Stack
+
+  attr_accessor :store
+
   def initialize
     @store = LinkedList.new
   end
