@@ -10,7 +10,6 @@ class Stack
   end
 
   def pop
-    
     @list.remove_first
   end
 
