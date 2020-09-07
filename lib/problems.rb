@@ -13,8 +13,8 @@ def balanced(string)
 
   stack = Stack.new
   string.chars do |bracket|
-    if expectation = pairs[bracket]
-      stack.push(expectation)
+    if pairs[bracket]
+      stack.push(pairs[bracket])
     else
       return false unless stack.pop == bracket
     end
