@@ -6,7 +6,7 @@ class Stack
 
   def push(element)
     # raise NotImplementedError, "Not yet implemented"
-    @store.add_front(element)
+    @store.add_first(element)
   end
 
   def pop()
@@ -14,7 +14,7 @@ class Stack
 
     return nil if self.empty? 
 
-    element = @store.remove_front
+    element = @store.remove_first
 
     return element
   end
