@@ -12,30 +12,27 @@ class Queue
       @head = 0
       @rear = 0
       @queue[@rear] = element
-    elsif ((@rear + 1) % @size == @front)
-      puts 'full'
+    elsif ((@rear + 1) % @size == @head)
+      raise ArgumentError.new('full')
     else
       @rear = (@rear + 1) % @size
       @queue[@rear] = element
     end
-
-    puts "enq: #{@queue.to_s}, #{@head}, #{@rear}"
   end
 
   def dequeue
     if (@head == -1)
-      puts 'empty'
+      raise ArgumentError.new('empty')
     elsif @head == @rear
       temp = @queue[@head]
       @head = -1
       @rear = -1
-       puts "de: #{@queue.to_s}, #{@head}, #{@rear}"
 
       return temp
     else
       temp = @queue[@head]
       @head = (@head + 1) % @size
-      puts "de2: #{@queue.to_s}, #{@head}, #{@rear}"
+
       return temp
     end
   end
