@@ -1,13 +1,13 @@
 require_relative './stack.rb'
+require_relative './queue.rb'
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n) - n is length of the string
+# Space Complexity: O(1)
 def balanced(string)
   return true if string.empty?
-
+  
   stack = Stack.new
   openers = ["(", "[", "{"]
-  closers = [")", "]", "}"]
   valid_pairs = {
     "(" => ")",
     "[" => "]",
@@ -22,7 +22,7 @@ def balanced(string)
       return false if valid_pairs[popped] != char
     end
   end
-
+  
   return true if stack.empty?
   return false
 end
@@ -30,5 +30,5 @@ end
 # Time Complexity: ?
 # Space Complexity: ?
 def evaluate_postfix(postfix_expression)
-  raise NotImplementedError, "Not implemented yet"
+
 end
