@@ -32,8 +32,9 @@ def evaluate_postfix(postfix_expression)
  
  operands = Stack.new
  postfix_expression.each_char do |char|
-    if char.is_a? Integer
-      operands.push(char.to_i)
+  i = Integer(char) rescue nil # 
+    if i != nil 
+      operands.push(i)
     else  # if not pop 2 values
       x = operands.pop
       y = operands.pop
