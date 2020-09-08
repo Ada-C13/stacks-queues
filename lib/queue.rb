@@ -1,5 +1,4 @@
 class Queue
-
   def initialize
     @store = Array.new
     @spots = 20
@@ -25,10 +24,10 @@ class Queue
     return nil if self.empty?
     # There is just one element in the queue
     element = @store[@front]
-    if @front == @rear 
+    if @front == @rear
       @front = @rear = -1
     else
-      @front = (@front + 1) 
+      @front = (@front + 1)
     end
 
     return element
@@ -38,7 +37,6 @@ class Queue
     return nil if @front == -1 && @rear == -1
 
     return @store[@front]
-    
   end
 
   def size
