@@ -1,21 +1,22 @@
+require_relative 'linked_list.rb'
+
 class Stack
   def initialize
     # @store = ...
-    @list = LinkedList.new #@head & #tail
-    #node => @data, @next, @previous
+    @store = LinkedList.new
   end
 
   def push(element)
-    return @list.add_first(element)
+    return @store.add_first(element)
   end
 
   def pop
     return nil if self.empty?
-    return @list.remove_first()
+    return @store.remove_first()
   end
 
   def empty?
-    return @list.empty?
+    return @store.empty?
   end
 
   def to_s
