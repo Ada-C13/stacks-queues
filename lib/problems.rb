@@ -27,8 +27,21 @@ def balanced(string)
   return false
 end
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n) - n is the length of the expression
+# Space Complexity: O(1)
 def evaluate_postfix(postfix_expression)
-
+  ops = ["+", "-", "*", "/"]
+  stack = Stack.new
+  
+  postfix_expression.each_char do |char|
+    if !(ops.include?(char))
+      stack.push(char)
+    else
+        num2 = stack.pop
+        num1 = stack.pop
+        expression = "#{num1} #{char} #{num2}"
+        stack.push(eval(expression))
+    end
+  end
+  return stack.pop
 end
