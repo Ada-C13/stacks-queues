@@ -1,9 +1,8 @@
 require_relative './stack.rb'
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 def balanced(string)
- 
   opening_brackets = Stack.new
   string.each_char do |char|
     # if an opening bracket, push it into the opening_brackets
@@ -21,13 +20,35 @@ def balanced(string)
         end
     end
   end
-  # if everything matches/closes, then we have a balanced brackets
 
+  # if everything matches/closes, then we have a balanced brackets
   return opening_brackets.empty?
 end
+
 
 # Time Complexity: ?
 # Space Complexity: ?
 def evaluate_postfix(postfix_expression)
-  raise NotImplementedError, "Not implemented yet"
+ 
+ operands = Stack.new
+ postfix_expression.each_char do |char|
+  if char.is_a? Integer
+    operands.push(char)
+  else  # if not pop 2 values
+    x = operands.pop
+    y = operands.pop
+    result = 0
+
+    if char == '+' 
+      result = x + y
+    elsif char == '*'
+      result = x * y
+    elsif char == '-'
+      result = x - y
+    elsif char == '/'
+      result = x / y    
+    end
+
+    operands.push(result)
+  end
 end
