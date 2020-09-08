@@ -1,9 +1,25 @@
 require_relative './stack.rb'
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 def balanced(string)
-  raise NotImplementedError, "Not implemented yet"
+  # {[{}{}]}, and {{}{}} are balanced expressions.
+  # {()}[), and {(}) are not balanced
+
+  return true if string == ''
+  return false if string.length % 2 != 0
+  return false if string =~ /[^\[\]\(\)\{\}]/
+  pairs = { '{' => '}', '[' => ']', '(' => ')' }
+
+  stack = Stack.new
+  string.chars do |bracket|
+    if pairs[bracket]
+      stack.push(pairs[bracket])
+    else
+      return false if stack.pop != bracket
+    end
+  end
+  stack.empty?
 end
 
 # Time Complexity: ?

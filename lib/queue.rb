@@ -1,28 +1,33 @@
 class Queue
 
   def initialize
-    # @store = ...
-    raise NotImplementedError, "Not yet implemented"
+    @store = LinkedList.new
   end
 
   def enqueue(element)
-    raise NotImplementedError, "Not yet implemented"
+    @store.add_last(element)
+    return @store.get_last.to_s
   end
 
-  def dequeue
-    raise NotImplementedError, "Not yet implemented"
+  def dequeue 
+    # removes and returns a value from the front of the queue
+    return nil if self.empty?
+    return @store.remove_first
   end
 
   def front
-    raise NotImplementedError, "Not yet implemented"
+    return nil if self.empty?
+    item = @store.get_last
+    return item
   end
 
   def size
-    raise NotImplementedError, "Not yet implemented"
+    return 0 if self.empty?
+    return @store.length
   end
 
   def empty?
-    raise NotImplementedError, "Not yet implemented"
+    return @store.empty?
   end
 
   def to_s
