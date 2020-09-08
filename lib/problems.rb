@@ -32,11 +32,11 @@ def evaluate_postfix(postfix_expression)
  
  operands = Stack.new
  postfix_expression.each_char do |char|
-    if char != '+' ||  char != '*' || char != '-' ||  char != '/'
+    if char != '+' &&  char != '*' && char != '-' &&  char != '/'
       operands.push(char)
     else  # if not pop 2 values
-      x = operands.pop.to_i
       y = operands.pop.to_i
+      x = operands.pop.to_i
       result = 0
 
       if char == '+' 
