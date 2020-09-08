@@ -1,6 +1,6 @@
 require_relative 'test_helper'
 
-xdescribe "Test Stack Implementation" do
+describe "Test Stack Implementation" do
   it "creates a Stack" do
     s = Stack.new
     expect(s.class).must_equal Stack
