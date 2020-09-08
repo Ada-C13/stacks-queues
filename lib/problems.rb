@@ -1,7 +1,7 @@
 require_relative './stack.rb'
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n) -- where n is characters in string
+# Space Complexity: O(n) -- where n is characters in string
 def balanced(string)
   return true if string == ""
   
