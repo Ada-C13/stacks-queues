@@ -35,8 +35,8 @@ def evaluate_postfix(postfix_expression)
     if char.is_a? Integer
       operands.push(char)
     else  # if not pop 2 values
-      x = operands.pop
-      y = operands.pop
+      x = operands.pop.to_i
+      y = operands.pop.to_i
       result = 0
 
       if char == '+' 
