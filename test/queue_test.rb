@@ -47,6 +47,7 @@ describe "Test Queue Implementation" do
     q.enqueue(5)
     removed = q.dequeue
     removed.must_equal 5
+    print "here is q #{q}"
     q.empty?.must_equal true
   end
 
