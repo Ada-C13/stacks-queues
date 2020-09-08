@@ -1,9 +1,29 @@
 require_relative './stack.rb'
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n) -- where n is characters in string
+# Space Complexity: O(n) -- where n is characters in string
 def balanced(string)
-  raise NotImplementedError, "Not implemented yet"
+  return true if string == ""
+  
+  pairs = {
+    "}" => "{",
+    ")" => "(",
+    "]" => "["
+  }
+
+  trapper_keeper = Stack.new
+
+  string.each_char do |char|
+    if pairs.values.include?(char)
+      trapper_keeper.push(char)
+    else
+      last_in = trapper_keeper.pop
+      return false if last_in != pairs[char]
+    end
+  end
+
+  return true if trapper_keeper.empty?
+  return false
 end
 
 # Time Complexity: ?
