@@ -1,19 +1,20 @@
 class Stack
   def initialize
-    # @store = ...
-    raise NotImplementedError, "Not yet implemented"
+    @store = LinkedList.new
   end
 
-  def push(element)
-    raise NotImplementedError, "Not yet implemented"
+  def push(item)
+    @store.add_first(item)
   end
 
-  def pop
-    raise NotImplementedError, "Not yet implemented"
+  def pop()
+    return nil if @store.empty?
+    item = @store.remove_first
+    return item
   end
 
-  def empty?
-    raise NotImplementedError, "Not yet implemented"
+  def empty?()
+    return @store.empty?
   end
 
   def to_s
