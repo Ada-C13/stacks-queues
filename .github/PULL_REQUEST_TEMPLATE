@@ -4,14 +4,14 @@ Thanks for doing some brain yoga. You are now submitting this assignment!
 ## Comprehension Questions
 |  Question 	|  Answer 	|
 |------------	| ---------	|
-|  What is an ADT?	|   	|
-|  Describe a Stack	|   	|
-|  What are the 5 methods in Stack and what does each do?	|   	|
-|  Describe a Queue	|   	|
-|  What are the 5 methods in Queue and what does each do?	|   	|
-|  What is the difference between implementing something and using something? | 	|
+|  What is an ADT?	|   We aren't talking about security but rather Abstact Data Types that allows all data operations to happen at one end only.	|
+|  Describe a Stack	|   An ordered collection of items where the addition of new items and the removal of existing items always takes place at the same end. For example, shoving towels into the cupboard from the top, always.	|
+|  What are the 5 methods in Stack and what does each do?	|  push() stores an element in the stack, pop() removes element from the stack, peep() gets the top towel from the linen closet without removing it, isFull() checks if the linen closet is full of towels, and lastly, isEmpty() check is if the linen closet is empty and "someone" needs to do the laundry.	|
+|  Describe a Queue	|  Think of a line where you add a person to the end of the line (no cutting!) and take someone's order by popping them out of line at the front. 	|
+|  What are the 5 methods in Queue and what does each do?	| add() someone to the end of the line, offer() inserts a specific person in the line  (kind of like allowed cutting), element() returns the person at the front of the line, peek() also returns the person at the front of the line, remove () takes the front of the line out of the line, and poll() tells me who's at the front of the line and also takes them out of the line. 	|
+|  What is the difference between implementing something and using something? | Implementing is like carrying a bunch of stuff when you are going to garden: a shovel, a weed wacker, a rake. To use something is to actually use the shovel to dig the dirt to plant your bulbs way late in the season and hope they show up but probably not because you're not that lucky when it comes to gardening outdoors.	|
 
 ## OPTIONAL JobSimulation
 |  Question 	|  Answer 	|
 |------------	| ---------	|
-|  Did you include a sample run of your code as a comment?	|   	|
+|  Did you include a sample run of your code as a comment?	|  um... 	|
