@@ -1,9 +1,21 @@
 require_relative './stack.rb'
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 def balanced(string)
-  raise NotImplementedError, "Not implemented yet"
+  return false if string.length.odd?
+  stack = []
+    brackets = { '{' => '}', '[' => ']', '(' => ')' }
+
+    s.each_char do |char|
+      if brackets.key?(char)
+        stack.push(char)
+      elsif brackets.values.include?(char)
+        return false if brackets.key(char) != stack.pop
+      end
+    end
+    stack.empty?
+  end
 end
 
 # Time Complexity: ?
