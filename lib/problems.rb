@@ -19,8 +19,8 @@ def balanced(string)
   end
 end
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 def evaluate_postfix(postfix_expression)
   postfix_expression.each_char do |char|
     if char.match(/\d/)
