@@ -32,7 +32,7 @@ def balanced(string)
     end
     i += 1
   end
-  return stack.empty?
+  return stack.empty? ? true : false
 end
 
   # keeps giving 5 erros :(
