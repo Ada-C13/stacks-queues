@@ -1,14 +1,14 @@
 require_relative './stack.rb'
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(n)
 def balanced(string)
   pairs = {"{" => "}", "[" => "]" , "(" => ")"}
   arr = string.split('')
   if arr.length % 2 != 0 
     return false
   end 
-  
+
   stack = Stack.new
   n = arr.length
   n.times do |i|
@@ -23,6 +23,8 @@ def balanced(string)
   end 
   return stack.empty?
 end
+
+
 
 # Time Complexity: ?
 # Space Complexity: ?
