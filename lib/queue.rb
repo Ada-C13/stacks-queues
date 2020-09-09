@@ -1,31 +1,63 @@
 class Queue
 
+# Using a circular buffer with an internal array starting at 20 elements, implement a Queue
+
   def initialize
-    # @store = ...
-    raise NotImplementedError, "Not yet implemented"
+    @store = Array.new(20)
+    @size = 20
+    @front = -1
+    @back = -1
   end
 
-  def enqueue(element)
-    raise NotImplementedError, "Not yet implemented"
+  # Adds the value to the back of the queue.
+  def enqueue(value)
+    if @front == -1
+      @front = 0
+      @back = 1
+      @store[@front] = value
+    elsif @store.empty?
+      raise ArgumentError, "Queue is full"
+    else
+      @store[@back] = value
+      @back = (@back + 1) % @size
+    end
   end
 
+  # removes and returns a value from the front of the queue
   def dequeue
-    raise NotImplementedError, "Not yet implemented"
+    if @front == -1
+      raise ArgumentError, "Queue is empty"
+    else
+      data = @store[@front]
+      @front = (@front + 1) % @size
+      if @store.empty?
+        @front = back = -1
+      end
+      return data
+    end
   end
 
-  def front
-    raise NotImplementedError, "Not yet implemented"
-  end
+  # def front
+  #   raise NotImplementedError, "Not yet implemented"
+  # end
 
-  def size
-    raise NotImplementedError, "Not yet implemented"
-  end
+  # def size
+  #   raise NotImplementedError, "Not yet implemented"
+  # end
 
+  # returns true if the queue is empty and false otherwise
   def empty?
-    raise NotImplementedError, "Not yet implemented"
+    return @front == @back
   end
 
   def to_s
-    return @store.to_s
+    list = []
+    current = @front
+    
+    while current != @back
+      list << @store[current]
+      current = (current + 1) % @size
+    end
+    return list.to_s
   end
 end
