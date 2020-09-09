@@ -1,10 +1,10 @@
 class Queue
 
   def initialize
-    @store = Array.new(100)
+    @store = Array.new(20)
     @front = -1
     @back = -1
-    @size = 100
+    @size = 20
     # @empty = true
     # @front = @back = 0
   end
