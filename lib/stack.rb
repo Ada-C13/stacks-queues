@@ -1,20 +1,20 @@
 class Stack
   def initialize
-    @store = []
+    @store = LinkedList.new
   end
 
   def push(element)
-    @store.push(element)
+    @store.add_last(element)
   end
 
   def pop
-    top = @store.last
-    @store.delete_at(-1)
-    return top
+    return nil if @store.empty?
+    item = @store.remove_last
+    return item
   end
 
   def empty?
-    @store == [] ? (return true) : (return false)
+    @store.empty?
   end
 
   def to_s
