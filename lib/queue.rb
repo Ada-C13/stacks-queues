@@ -1,31 +1,75 @@
 class Queue
 
   def initialize
-    # @store = ...
-    raise NotImplementedError, "Not yet implemented"
+    @size = 20
+    @queue = []
+    @front = @rear = -1
   end
 
+  # reference: https://learn-2.galvanize.com/cohorts/2173/blocks/867/content_files/04-Stacks-And-Queues/01-stacks-and-queues.md
   def enqueue(element)
-    raise NotImplementedError, "Not yet implemented"
+    # The Queue is full
+    if ((front == 0 && rear == @size - 1) || (@rear == (@front - 1) % (@size - 1)))    
+      raise ArgumentError.new('The queue is full')
+    # Queue is empty
+    elsif (@front == -1) 
+      @front = 0
+      @rear = 0
+      @queue[@rear] = element
+    # rear needs to wrap around
+    elsif (@rear == @size - 1 && @front != 0) 
+      @rear = 0
+      @queue[@rear] = element
+    else
+      @rear = @rear + 1
+      @queue[@rear] = element
+    end
   end
 
+  # reference: https://learn-2.galvanize.com/cohorts/2173/blocks/867/content_files/04-Stacks-And-Queues/01-stacks-and-queues.md
   def dequeue
-    raise NotImplementedError, "Not yet implemented"
+    # Queue is empty
+    if (@front == -1) 
+      raise ArgumentError.new("The queue is empty")
+    end
+  
+    data = @queue[@front]
+    # overwrite the element being deleted
+    @queue[@front] = nil
+  
+    # if the queue is now empty
+    if (@front == @rear)
+      @front = -1
+      @rear = -1
+    # if front needs to wrap around
+    elsif (@front == @size - 1) 
+      @front = 0
+    else
+      @front = (@front + 1) % @size
+    end
+  
+    return data
   end
 
   def front
-    raise NotImplementedError, "Not yet implemented"
+    return @queue[@front]
   end
 
+  # reference: https://stackoverflow.com/questions/4459141/how-to-find-number-of-elements-in-a-circular-queue
   def size
-    raise NotImplementedError, "Not yet implemented"
+    size = @front > @rear ? (@size - @front + @rear + 1) : (@rear - @front + 1)
+    return size
   end
 
   def empty?
-    raise NotImplementedError, "Not yet implemented"
+    return @front == @rear && @front == -1
   end
 
   def to_s
-    return @store.to_s
+    if @front <= @rear 
+      return @queue[@front..@rear].to_s
+    else  
+      return (@queue[@front..-1] + @queue[0..@rear]).to_s
+    end 
   end
 end
