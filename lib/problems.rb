@@ -1,9 +1,19 @@
 require_relative './stack.rb'
 
-# Time Complexity: ?
-# Space Complexity: ?
+# Time Complexity: O(n)
+# Space Complexity: O(1)
 def balanced(string)
-  raise NotImplementedError, "Not implemented yet"
+  array = string.split("")
+  i = 0 
+  j = -1
+  until i = array.length / 2
+    return false if i != j 
+    i += 1
+    j -+ 1 
+  end
+
+  return true
+
 end
 
 # Time Complexity: ?
