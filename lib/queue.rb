@@ -97,5 +97,6 @@ queue_size = 20
     end
     #return the array and make sure to do to_s to ensure string in case it mutated somewhere
     return array_values.to_s
+    end
   end
 end
