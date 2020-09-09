@@ -51,6 +51,13 @@ class Queue
   end
 
   def to_s
-    return @store.to_s
+    list = []
+    current = @front
+    
+    while current != @back
+      list << @store[current]
+      current = (current + 1) % @size
+    end
+    return list.to_s
   end
 end
