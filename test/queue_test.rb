@@ -65,8 +65,10 @@ describe "Test Queue Implementation" do
     
     q = Queue.new
     q.empty?.must_equal true
+    puts("kjshdflkasjhdf;ajskdf")
     q.enqueue(-1)
     q.enqueue(-60)
+    puts(q)
     q.empty?.must_equal false
     q.dequeue
     q.dequeue
