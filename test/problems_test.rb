@@ -5,7 +5,7 @@ Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 describe "Test wave 3 problems" do
   describe "balanced" do
     it "Given balanced strings it should return true" do
-      
+    
       expect(balanced('(({}))')).must_equal true
     end
 
@@ -33,7 +33,7 @@ describe "Test wave 3 problems" do
     end
   end
 
-  describe "postfix" do
+  xdescribe "postfix" do
     it "can add a 2 numbers together" do
       
       expect(evaluate_postfix("34+")).must_equal 7
