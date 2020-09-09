@@ -3,7 +3,26 @@ require_relative './stack.rb'
 # Time Complexity: ?
 # Space Complexity: ?
 def balanced(string)
-  raise NotImplementedError, "Not implemented yet"
+  strStack = Stack.new
+  opens_and_closes = {
+    "}" => "{", 
+    ")" => "(", 
+    "]" => "["
+  }
+  string.each_char do |char|
+    if ['(', '[', '{'].include?(char)
+      strStack.push(char)
+    else
+      element = strStack.pop 
+
+      if opens_and_closes[char] != element
+        return false
+      end
+    end
+  end
+  
+  
+  return strStack.empty?
 end
 
 # Time Complexity: ?
