@@ -10,7 +10,6 @@ describe "Test Queue Implementation" do
   end
 
   it "adds something to an empty Queue" do
-    
     q = Queue.new
     q.enqueue(10)
     expect(q.to_s).must_equal "[10]"
@@ -26,7 +25,6 @@ describe "Test Queue Implementation" do
   end
 
   it "starts the Queue empty" do
-    
     q = Queue.new
     q.empty?.must_equal true
   end
