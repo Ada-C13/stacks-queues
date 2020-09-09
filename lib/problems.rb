@@ -5,21 +5,23 @@ require_relative './stack.rb'
 def balanced(string)
   return false if string.length.odd?
   stack = []
-    brackets = { '{' => '}', '[' => ']', '(' => ')' }
+  brackets = { '{' => '}', '[' => ']', '(' => ')' }
 
-    s.each_char do |char|
-      if brackets.key?(char)
-        stack.push(char)
-      elsif brackets.values.include?(char)
-        return false if brackets.key(char) != stack.pop
-      end
+  string.each_char do |char|
+    if brackets.key?(char)
+      stack.push(char)
+    elsif brackets.values.include?(char)
+      return false if brackets.key(char) != stack.pop
     end
-    stack.empty?
   end
+
+  if stack.empty?
+    return true 
+  end 
 end
 
-# Time Complexity: ?
-# Space Complexity: ?
-def evaluate_postfix(postfix_expression)
-  raise NotImplementedError, "Not implemented yet"
-end
+# # Time Complexity: ?
+# # Space Complexity: ?
+# def evaluate_postfix(postfix_expression)
+#   raise NotImplementedError, "Not implemented yet"
+# end
