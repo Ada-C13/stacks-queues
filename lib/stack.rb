@@ -15,6 +15,10 @@ class Stack
     @store.empty?
   end
 
+  def top
+    @store.get_first
+  end
+
   def to_s
     return @store.to_s
   end
