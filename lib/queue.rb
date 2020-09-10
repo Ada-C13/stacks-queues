@@ -32,8 +32,7 @@ class Queue
     @store[@front] = nil # overwrite the element being deleted
   
     if @front == @rear # queue is now empty
-      @front = -1
-      @rear = -1
+      @front = @rear = -1
     elsif @front == @size - 1 # front needs to wrap around
       @front = 0
     else
@@ -48,6 +47,18 @@ class Queue
   end
 
   def to_s
-    return @store.to_s
+    list = Array.new
+
+    @store[@front...@size].each do |element|
+      list.push(element) if element
+    end
+
+    if @rear < @front # the queue has wrapped around
+      @store[0..@rear].each do |element|
+        list.push(element) if element
+      end
+    end
+      
+    return list.to_s
   end
 end
