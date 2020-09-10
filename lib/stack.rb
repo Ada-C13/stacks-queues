@@ -1,3 +1,4 @@
+require_relative "./linked_list.rb"
 class Stack
   def initialize
     @store = LinkedList.new
@@ -20,5 +21,3 @@ class Stack
     return @store.to_s
   end
 end
-
-

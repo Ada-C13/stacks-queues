@@ -1,9 +1,25 @@
-require_relative './stack.rb'
+require_relative "./stack.rb"
 
 # Time Complexity: ?
 # Space Complexity: ?
 def balanced(string)
-  raise NotImplementedError, "Not implemented yet"
+  braces_stack = Stack.new
+
+  hash_bra = {
+    ")" => "(",
+    "]" => "[",
+    "}" => "{",
+  }
+
+  string.each_char do |brace|
+    if !hash_bra[brace]
+      braces_stack.push(brace)
+    elsif braces_stack.pop != hash_bra[brace]
+      return false
+    end
+  end
+
+  return braces_stack.empty?
 end
 
 # Time Complexity: ?
