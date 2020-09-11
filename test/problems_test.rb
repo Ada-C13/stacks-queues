@@ -2,7 +2,7 @@ require_relative 'test_helper'
 
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
 
-xdescribe "Test wave 3 problems" do
+describe "Test wave 3 problems" do
   describe "balanced" do
     it "Given balanced strings it should return true" do
       
@@ -26,7 +26,7 @@ xdescribe "Test wave 3 problems" do
       expect(balanced('[]')).must_equal true
       expect(balanced('{}')).must_equal true
     end
-
+    
     it "also works if the string has opens and closes in the beginning and end" do
       
       expect(balanced('[]()')).must_equal true
