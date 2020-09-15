@@ -11,7 +11,7 @@ class Stack
 
   def pop
     return nil if self.empty?
-    popped = @store.remove_last
+    element = @store.remove_last
   end
 
   def empty?
