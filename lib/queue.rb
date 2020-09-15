@@ -29,7 +29,9 @@ class Queue
   end
 
   def empty?
+    if @front == 0 && @rear == -1
     return @store.empty?
+    end
   end
 
   def to_s
