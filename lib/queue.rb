@@ -40,7 +40,7 @@ class Queue
     string_queue = Array.new
     current_element = @first
 
-    while current_element < @last
+    until current_element == @last
       string_queue << @store[current_element]
       current_element = (current_element + 1) % @size
     end
