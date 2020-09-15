@@ -1,40 +1,35 @@
 class Queue
+  attr_accessor :front, :rear, :store
+  attr_reader :size
 
-  def initialize
-    @store = Array.new
+  def initialize(size=20)
+    @size = size
+    @store = Array.new()
     @front = 0
+    @rear = -1
   end
 
+  # add element to rear
   def enqueue(element)
-    @store.push(element)
+    return @store.push(element)
   end
 
+  # remove element from front
   def dequeue
-    @store.pop
+   return nil if @store.empty?
+   return @store.shift()
   end
 
   def front(queue) 
-    first = queue.dequeue
-    temp_arr = [first]
-    until queue.empty?
-      temp = queue.dequeue
-      temp_arr.push(temp)
-    end
-
-    index = 0
-    until index == temp_arr.length
-      queue.enqueue(temp_arr[index])
-      index += 1
-    end
-    return first
+    return @front == -1
   end
 
   def size
-    # @store.size
+    return @store.size
   end
 
   def empty?
-    @store.empty?
+    return @store.empty?
   end
 
   def to_s
