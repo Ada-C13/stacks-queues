@@ -14,7 +14,10 @@ def balanced(string)
   until left >= right
     index = left_half.find_index { |el| el == string[left] }
 
-    return false if string[right] != right_half[index]
+    if !index.nil? && string[right] != right_half[index]
+      return false if string[left + 1] != right_half[index]
+    end
+    
     left += 1
     right -= 1
   end
