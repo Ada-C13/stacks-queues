@@ -21,11 +21,10 @@ class Queue
     return nil if self.empty?
 
     element = @store[@first]
-    @store[@first] = nil
+    # @store[@first] = nil
     @first = (@first + 1) % size
-    @last = (@last - 1) % @size
-    return element
 
+    return element
   end
 
 
