@@ -1,37 +1,3 @@
-# class Queue
-
-#   def initialize
-#     @store = LinkedList.new
-#   end
-
-#   def enqueue(element)
-#     @store.add_last(element)
-#   end
-
-#   def dequeue
-#     return nil if self.empty? 
-
-#     return @store.remove_first
-#   end
-
-#   def front
-#     return @store.get_first
-#   end
-
-#   def size
-#    return @store.length
-#   end
-
-#   def empty?()
-#     return @store.empty?
-#   end
-
-#   def to_s
-#     return @store.to_s
-#   end
-# end
-
-
   class Queue
     def initialize(size = 30)
       @store = Array.new
@@ -41,7 +7,7 @@
     end
 
     def enqueue(element)
-      if @front == (@back + 1) % @size
+      if @front == (@back + 1) % @size 
         raise StandardError, 'Queue is full.'
       else
         @store[@back] = element
@@ -50,14 +16,14 @@
     end
 
     def empty?
-      @front == @back
+     return @front == @back  # front &back are pointing to the same position, then we've read everything
     end
 
     def dequeue
       return nil if self.empty?
 
       element = @store[@front]
-      @front = (@front + 1) % @size
+      @front = (@front + 1) % @size  # advance the from pointer/index by 1
       return element
     end
 
