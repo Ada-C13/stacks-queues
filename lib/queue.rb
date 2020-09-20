@@ -32,58 +32,47 @@
 # end
 
 
-class Queue
-  def initialize
-    @store = LinkedList.new
-    @size = 10
-    count = 0
-    # create 10 nodes & initialize the value with 0
-    while count < @size 
-      @store.add_first(0)
-    end
-    @store.create_cycle() #  make the last node link to first node to make circular buffer
+  class Queue
+    def initialize(size = 30)
+      @store = Array.new
+      @size = size
+      @front = 0
+      @back = 0
 
-    @front = 0
-    @back = 0
-  end
 
-  def enqueue(element)
-    if @front == (@back + 1) % @size # incases where queue is full
-      raise StandardError, 'Queue is full.'
-    else
-      @store.get_at_index(back) = element
-      @back = (@back + 1) % @size
-    end
-  end
-
-  def dequeue
-    return nil if empty?
-
-    # FIFO
-    item = @store[@front]
-    @front = (@front + 1) % @size
-    item
-  end
-
-  attr_reader :front
-
-  attr_reader :size
-
-  def empty?
-    @front == @back
-  end
-
-  def to_s
-    return [] if @front == @back
-
-    queue = []
-    current = @front
-
-    while current != @back
-      queue << @store[current]
-      current = (current + 1) % @size
+    def enqueue(element)
+      if @front == (@back + 1) % @size
+        raise StandardError, 'Queue is full.'
+      else
+        @store[@back] = element
+        @back = (@back + 1) % @size
+      end
     end
 
-    queue.to_s
-  end
+    def empty?
+      @front == @back
+    end
+
+    def dequeue
+      return nil if self.empty?
+
+      element = @store[@front]
+      @front = (@front + 1) % @size
+      return element
+    end
+
+
+    def to_s
+      return [] if self.empty?
+
+      queue = []
+      current = @front
+
+      while current != @back
+        queue << @store[current]
+        current = (current + 1) % @size
+      end
+
+      queue.to_s
+    end
 end
