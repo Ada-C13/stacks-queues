@@ -38,7 +38,7 @@
       @size = size
       @front = 0
       @back = 0
-
+    end
 
     def enqueue(element)
       if @front == (@back + 1) % @size
