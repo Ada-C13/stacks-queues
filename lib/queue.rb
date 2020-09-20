@@ -7,7 +7,7 @@
     end
 
     def enqueue(element)
-      if @front == (@back + 1) % @size 
+      if @front == (@back + 1) % @size
         raise StandardError, 'Queue is full.'
       else
         @store[@back] = element
@@ -16,14 +16,14 @@
     end
 
     def empty?
-     return @front == @back  # front &back are pointing to the same position, then we've read everything
+     return @front == @back  # front & back are pointing to the same position, then we've read everything
     end
 
     def dequeue
       return nil if self.empty?
 
       element = @store[@front]
-      @front = (@front + 1) % @size  # advance the from pointer/index by 1
+      @front = (@front + 1) % @size  # advance the front pointer/index by 1
       return element
     end
 
